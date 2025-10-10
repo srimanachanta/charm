@@ -40,6 +40,9 @@
 # debug information files
 *.dwo
 
+# meson
+buildDir
+
 # misc
 .idea
 .DS_Store

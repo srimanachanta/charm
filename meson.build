@@ -24,4 +24,4 @@ itk_deps = [
 
 libcharm = library('charm', 'src/charm/cpp/lib.cpp', dependencies : [] + itk_deps)
 
-executable('charm_cli', 'src/charm_cli/cpp/main.cpp', link_with: [libcharm])
+executable('charm_cli', 'src/charm_cli/cpp/main.cpp', link_with : [libcharm])
