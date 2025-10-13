@@ -42,6 +42,8 @@
 
 # meson
 buildDir
+subprojects/*
+!subprojects/*.wrap
 
 # misc
 .idea
