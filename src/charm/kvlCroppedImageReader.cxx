@@ -116,7 +116,7 @@ CroppedImageReader ::GetTransformOfFileName(const std::string& filename) {
 
   // Get someone who can read this file format
   itk::ImageIOBase::Pointer io = itk::ImageIOFactory::CreateImageIO(
-      filename.c_str(), itk::ImageIOFactory::ReadMode);
+      filename.c_str(), itk::ImageIOFactory::IOFileModeEnum::ReadMode);
   if (io) {
     std::cout
         << "Constructing image-to-world transform from header information ("
@@ -236,7 +236,7 @@ void CroppedImageReader ::Read(const char* fileName,
 
     // Obtain the bounding box size
     itk::ImageIOBase::Pointer imageIO = itk::ImageIOFactory::CreateImageIO(
-        boundingFileName, itk::ImageIOFactory::ReadMode);
+        boundingFileName, itk::ImageIOFactory::IOFileModeEnum::ReadMode);
     if (imageIO.IsNull()) {
       itkExceptionMacro(<< "Can't find a suitable filter to import image "
                         << boundingFileName);

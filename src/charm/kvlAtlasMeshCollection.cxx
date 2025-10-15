@@ -154,7 +154,7 @@ AtlasMeshCollection ::GetReferenceTetrahedronInfos() const {
          cellIt != m_Cells->End(); ++cellIt) {
       AtlasMesh::CellType* cell = cellIt.Value();
 
-      if (cell->GetType() == AtlasMesh::CellType::TETRAHEDRON_CELL) {
+      if (cell->GetType() == itk::CellGeometryEnum::TETRAHEDRON_CELL) {
         // Create info structure and fill in all the fields one by one
         ReferenceTetrahedronInfo info;
 
@@ -335,13 +335,13 @@ bool AtlasMeshCollection ::Write(const char* fileName) const {
 
     out << "   " << cellIt.Index() << "   ";
 
-    if (cell->GetType() == AtlasMesh::CellType::VERTEX_CELL) {
+    if (cell->GetType() == itk::CellGeometryEnum::VERTEX_CELL) {
       out << "VERTEX   ";
-    } else if (cell->GetType() == AtlasMesh::CellType::LINE_CELL) {
+    } else if (cell->GetType() == itk::CellGeometryEnum::LINE_CELL) {
       out << "LINE   ";
-    } else if (cell->GetType() == AtlasMesh::CellType::TRIANGLE_CELL) {
+    } else if (cell->GetType() == itk::CellGeometryEnum::TRIANGLE_CELL) {
       out << "TRIANGLE   ";
-    } else if (cell->GetType() == AtlasMesh::CellType::TETRAHEDRON_CELL) {
+    } else if (cell->GetType() == itk::CellGeometryEnum::TETRAHEDRON_CELL) {
       out << "TETRAHEDRON   ";
     } else {
       itkExceptionMacro(
@@ -922,7 +922,7 @@ bool AtlasMeshCollection ::GetCollapsed(
   // Sanity check
   if (!m_Cells->IndexExists(edgeId)) return false;
 
-  if (m_Cells->ElementAt(edgeId)->GetType() != AtlasMesh::CellType::LINE_CELL)
+  if (m_Cells->ElementAt(edgeId)->GetType() != itk::CellGeometryEnum::LINE_CELL)
     return false;
 
   // Retrieve the id's of the two vertices of the edge to be collapsed
@@ -1050,7 +1050,7 @@ bool AtlasMeshCollection ::GetCollapsed(
     // Get the cell
     const AtlasMesh::CellType* cell = m_Cells->ElementAt(*disappearingIt);
 
-    if (cell->GetType() != AtlasMesh::CellType::TETRAHEDRON_CELL) {
+    if (cell->GetType() != itk::CellGeometryEnum::TETRAHEDRON_CELL) {
       continue;
     }
 
@@ -1119,7 +1119,7 @@ bool AtlasMeshCollection ::GetCollapsed(
         // Get the cell
         const AtlasMesh::CellType* cell = m_Cells->ElementAt(*it);
 
-        if (cell->GetType() == AtlasMesh::CellType::LINE_CELL) {
+        if (cell->GetType() == itk::CellGeometryEnum::LINE_CELL) {
           // std::cout << "        Found an extra disappearing line that
           // contains both "
           //           << *otherIt << " and p1: " << *it << std::endl;
@@ -1160,7 +1160,7 @@ bool AtlasMeshCollection ::GetCollapsed(
       // Get the cell
       const AtlasMesh::CellType* cell = m_Cells->ElementAt(*it);
 
-      if (cell->GetType() == AtlasMesh::CellType::TRIANGLE_CELL) {
+      if (cell->GetType() == itk::CellGeometryEnum::TRIANGLE_CELL) {
         // std::cout << "        Found an extra disappearing triangle that
         // contains "
         //           << firstOtherPointId << ", " << secondOtherPointId << ",
@@ -1179,7 +1179,7 @@ bool AtlasMeshCollection ::GetCollapsed(
     // Get the cell
     const AtlasMesh::CellType* cell = m_Cells->ElementAt(*it);
 
-    if (cell->GetType() == AtlasMesh::CellType::VERTEX_CELL) {
+    if (cell->GetType() == itk::CellGeometryEnum::VERTEX_CELL) {
       // std::cout << "        Found an extra disappearing vertex that contains
       // p1" << std::endl;
       extraDisappearingCells.insert(*it);
@@ -1211,7 +1211,7 @@ bool AtlasMeshCollection ::GetCollapsed(
     // Get the cell
     const AtlasMesh::CellType* cell = m_Cells->ElementAt(*p0orP1It);
 
-    if (cell->GetType() != AtlasMesh::CellType::TETRAHEDRON_CELL) {
+    if (cell->GetType() != itk::CellGeometryEnum::TETRAHEDRON_CELL) {
       continue;
     }
 
@@ -1412,7 +1412,7 @@ bool AtlasMeshCollection ::GetCollapsed(
     // Get the cell
     const AtlasMesh::CellType* cell = m_Cells->ElementAt(*it);
 
-    if (cell->GetType() == AtlasMesh::CellType::VERTEX_CELL) {
+    if (cell->GetType() == itk::CellGeometryEnum::VERTEX_CELL) {
       unifiedVertexId = *it;
       // std::cout << "        Found that unifiedVertexId is " <<
       // unifiedVertexId << std::endl;
@@ -1596,13 +1596,13 @@ bool AtlasMeshCollection ::GetCollapsed(
 
       AtlasMesh::CellAutoPointer newCell;
 
-      if (cell->GetType() == AtlasMesh::CellType::VERTEX_CELL) {
+      if (cell->GetType() == itk::CellGeometryEnum::VERTEX_CELL) {
         // Create a new vertex cell
         newCell.TakeOwnership(new VertexCell);
-      } else if (cell->GetType() == AtlasMesh::CellType::LINE_CELL) {
+      } else if (cell->GetType() == itk::CellGeometryEnum::LINE_CELL) {
         // Create a new line cell
         newCell.TakeOwnership(new LineCell);
-      } else if (cell->GetType() == AtlasMesh::CellType::TRIANGLE_CELL) {
+      } else if (cell->GetType() == itk::CellGeometryEnum::TRIANGLE_CELL) {
         // Create a new triangle cell
         newCell.TakeOwnership(new TriangleCell);
       } else {
@@ -1732,13 +1732,13 @@ AtlasMeshCollection::Pointer AtlasMeshCollection ::GetRegionGrown(
       typedef itk::TetrahedronCell<AtlasMesh::CellType> TetrahedronCell;
 
       AtlasMesh::CellAutoPointer newCell;
-      if (cell->GetType() == AtlasMesh::CellType::VERTEX_CELL) {
+      if (cell->GetType() == itk::CellGeometryEnum::VERTEX_CELL) {
         // Create a new vertex cell
         newCell.TakeOwnership(new VertexCell);
-      } else if (cell->GetType() == AtlasMesh::CellType::LINE_CELL) {
+      } else if (cell->GetType() == itk::CellGeometryEnum::LINE_CELL) {
         // Create a new line cell
         newCell.TakeOwnership(new LineCell);
-      } else if (cell->GetType() == AtlasMesh::CellType::TRIANGLE_CELL) {
+      } else if (cell->GetType() == itk::CellGeometryEnum::TRIANGLE_CELL) {
         // Create a new triangle cell
         newCell.TakeOwnership(new TriangleCell);
       } else {
@@ -1800,7 +1800,7 @@ AtlasMeshCollection::Pointer AtlasMeshCollection ::GetRegionGrown(
         typedef itk::TetrahedronCell<AtlasMesh::CellType> TetrahedronCell;
 
         AtlasMesh::CellAutoPointer newCell;
-        if (cell->GetType() == AtlasMesh::CellType::LINE_CELL) {
+        if (cell->GetType() == itk::CellGeometryEnum::LINE_CELL) {
           // Create a new line cell
           newCell.TakeOwnership(new LineCell);
 
@@ -1822,10 +1822,10 @@ AtlasMeshCollection::Pointer AtlasMeshCollection ::GetRegionGrown(
           }
           // std::cout << " to the outer points." << std::endl;
 
-        } else if (cell->GetType() == AtlasMesh::CellType::TRIANGLE_CELL) {
+        } else if (cell->GetType() == itk::CellGeometryEnum::TRIANGLE_CELL) {
           // Create a new triangle cell
           newCell.TakeOwnership(new TriangleCell);
-        } else if (cell->GetType() == AtlasMesh::CellType::TETRAHEDRON_CELL) {
+        } else if (cell->GetType() == itk::CellGeometryEnum::TETRAHEDRON_CELL) {
           // Create a new tetrahedron cell
           newCell.TakeOwnership(new TetrahedronCell);
         }
@@ -1858,7 +1858,7 @@ AtlasMeshCollection::Pointer AtlasMeshCollection ::GetRegionGrown(
       while (neighborIt != cellNeighbors.end()) {
         const AtlasMesh::CellType* cell = m_Cells->ElementAt(*neighborIt);
 
-        if (cell->GetType() == AtlasMesh::CellType::VERTEX_CELL) {
+        if (cell->GetType() == itk::CellGeometryEnum::VERTEX_CELL) {
           // Create a new cell of the correct type
           typedef itk::VertexCell<AtlasMesh::CellType> VertexCell;
           AtlasMesh::CellAutoPointer newCell;
@@ -1871,7 +1871,7 @@ AtlasMeshCollection::Pointer AtlasMeshCollection ::GetRegionGrown(
           regionGrownCells->InsertElement(*neighborIt,
                                           newCell.ReleaseOwnership());
 
-        } else if (cell->GetType() == AtlasMesh::CellType::LINE_CELL) {
+        } else if (cell->GetType() == itk::CellGeometryEnum::LINE_CELL) {
           // Retrieve the other point of this line
           AtlasMesh::CellType::PointIdConstIterator pointIt =
               cell->PointIdsBegin();
@@ -1906,7 +1906,7 @@ AtlasMeshCollection::Pointer AtlasMeshCollection ::GetRegionGrown(
             }
           }
 
-        } else if (cell->GetType() == AtlasMesh::CellType::TRIANGLE_CELL) {
+        } else if (cell->GetType() == itk::CellGeometryEnum::TRIANGLE_CELL) {
           // Retrieve the other two points of this triangle
           AtlasMesh::CellType::PointIdConstIterator pointIt =
               cell->PointIdsBegin();
@@ -2007,7 +2007,7 @@ AtlasMeshCollection::Pointer AtlasMeshCollection ::GetRegionGrown(
   while (cellIt != cellEnd) {
     AtlasMesh::CellType* cell = cellIt.Value();
 
-    if (cell->GetType() == AtlasMesh::CellType::VERTEX_CELL) {
+    if (cell->GetType() == itk::CellGeometryEnum::VERTEX_CELL) {
       // Retrieve point id
       AtlasMesh::PointIdentifier pointId = *(cell->PointIdsBegin());
 
@@ -2222,7 +2222,7 @@ AtlasMeshCollection::Pointer AtlasMeshCollection ::GetUpsampled() const {
          cellIt != m_Cells->End(); ++cellIt) {
       const AtlasMesh::CellType* cell = cellIt.Value();
 
-      if (cell->GetType() != AtlasMesh::CellType::TETRAHEDRON_CELL) {
+      if (cell->GetType() != itk::CellGeometryEnum::TETRAHEDRON_CELL) {
         continue;
       }
 

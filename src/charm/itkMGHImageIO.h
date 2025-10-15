@@ -117,20 +117,20 @@ void MGHImageIO::WriteHeader(Writer& writer) {
 
   // type
   switch (m_ComponentType) {
-    case UCHAR:
+    case IOComponentEnum::UCHAR:
       writer.Write(fs::MRI_UCHAR);
       break;
-    case USHORT:
+    case IOComponentEnum::USHORT:
       itkWarningMacro(<< " Casting from USHORT to INT!!!");
-    case INT:
+    case IOComponentEnum::INT:
       writer.Write(fs::MRI_INT);
       break;
-    case DOUBLE:
+    case IOComponentEnum::DOUBLE:
       itkWarningMacro(<< " Casting from DOUBLE to INT!!!");
-    case FLOAT:
+    case IOComponentEnum::FLOAT:
       writer.Write(fs::MRI_FLOAT);
       break;
-    case SHORT:
+    case IOComponentEnum::SHORT:
       writer.Write(fs::MRI_SHORT);
       break;
 

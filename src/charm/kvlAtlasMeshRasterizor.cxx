@@ -24,7 +24,7 @@ void AtlasMeshRasterizor ::Rasterize(const AtlasMesh *mesh) {
   for (AtlasMesh::CellsContainer::ConstIterator cellIt =
            mesh->GetCells()->Begin();
        cellIt != mesh->GetCells()->End(); ++cellIt) {
-    if (cellIt.Value()->GetType() == AtlasMesh::CellType::TETRAHEDRON_CELL) {
+    if (cellIt.Value()->GetType() == itk::CellGeometryEnum::TETRAHEDRON_CELL) {
       str.m_TetrahedronIds.push_back(cellIt.Index());
       // str.m_TetrahedronIds.insert( cellIt.Index() );
     }
@@ -32,8 +32,8 @@ void AtlasMeshRasterizor ::Rasterize(const AtlasMesh *mesh) {
 
   // Set up the multithreader
   itk::MultiThreaderBase::Pointer threader = itk::MultiThreaderBase::New();
-  threader->SetNumberOfThreads(this->GetNumberOfThreads());
-  // threader->SetNumberOfThreads( 1 );
+  threader->SetMaximumNumberOfThreads(this->GetNumberOfThreads());
+  threader->SetNumberOfWorkUnits(threader->GetMaximumNumberOfThreads());
   threader->SetSingleMethod(this->ThreaderCallback, &str);
 
   // Let the beast go
@@ -47,11 +47,11 @@ itk::ITK_THREAD_RETURN_TYPE
 AtlasMeshRasterizor ::ThreaderCallback(void *arg) {
   // Retrieve the input arguments
   const int threadNumber =
-      ((itk::MultiThreaderBase::ThreadInfoStruct *)(arg))->ThreadID;
+      ((itk::MultiThreaderBase::WorkUnitInfo *)(arg))->WorkUnitID;
   const int numberOfThreads =
-      ((itk::MultiThreaderBase::ThreadInfoStruct *)(arg))->NumberOfThreads;
+      ((itk::MultiThreaderBase::WorkUnitInfo *)(arg))->NumberOfWorkUnits;
   ThreadStruct *str =
-      (ThreadStruct *)(((itk::MultiThreaderBase::ThreadInfoStruct *)(arg))
+      (ThreadStruct *)(((itk::MultiThreaderBase::WorkUnitInfo *)(arg))
                            ->UserData);
 
 #if 1
