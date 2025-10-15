@@ -1,6 +1,8 @@
 #include "kvlAtlasMeshRasterizor.h"
-#include "itkMultiThreaderBase.h"
+
 #include <mutex>
+
+#include "itkMultiThreaderBase.h"
 
 static std::mutex rasterizorMutex;
 
@@ -16,7 +18,7 @@ AtlasMeshRasterizor ::AtlasMeshRasterizor() {
 //
 //
 //
-void AtlasMeshRasterizor ::Rasterize(const AtlasMesh *mesh) {
+void AtlasMeshRasterizor ::Rasterize(const AtlasMesh* mesh) {
   // Fill in the data structure to pass on to the threads
   ThreadStruct str;
   str.m_Rasterizor = this;
@@ -43,16 +45,14 @@ void AtlasMeshRasterizor ::Rasterize(const AtlasMesh *mesh) {
 //
 //
 //
-itk::ITK_THREAD_RETURN_TYPE
-AtlasMeshRasterizor ::ThreaderCallback(void *arg) {
+itk::ITK_THREAD_RETURN_TYPE AtlasMeshRasterizor ::ThreaderCallback(void* arg) {
   // Retrieve the input arguments
   const int threadNumber =
-      ((itk::MultiThreaderBase::WorkUnitInfo *)(arg))->WorkUnitID;
+      ((itk::MultiThreaderBase::WorkUnitInfo*)(arg))->WorkUnitID;
   const int numberOfThreads =
-      ((itk::MultiThreaderBase::WorkUnitInfo *)(arg))->NumberOfWorkUnits;
-  ThreadStruct *str =
-      (ThreadStruct *)(((itk::MultiThreaderBase::WorkUnitInfo *)(arg))
-                           ->UserData);
+      ((itk::MultiThreaderBase::WorkUnitInfo*)(arg))->NumberOfWorkUnits;
+  ThreadStruct* str =
+      (ThreadStruct*)(((itk::MultiThreaderBase::WorkUnitInfo*)(arg))->UserData);
 
 #if 1
   // Compute up-front which tetrahedra this thread should be responsible for.

@@ -12,9 +12,9 @@
 #include <vnl/vnl_vector.h>
 
 #include "itkByteSwapper.h"
-#include "itkMacro.h"
 #include "itkIOCommon.h"
 #include "itkImageIOBase.h"
+#include "itkMacro.h"
 #include "itkMatrix.h"
 #include "itkMetaDataObject.h"
 

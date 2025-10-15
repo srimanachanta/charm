@@ -1,9 +1,8 @@
 #include "kvlAtlasMeshCollection.h"
 
-#include "gzstream.h"
-
 #include <fstream>
 
+#include "gzstream.h"
 #include "kvlTetrahedronAspectRatio.h"
 #include "vnl/vnl_inverse.h"
 #include "vnl/vnl_matrix_fixed.h"

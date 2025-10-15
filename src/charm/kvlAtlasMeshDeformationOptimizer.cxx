@@ -338,7 +338,8 @@ void AtlasMeshDeformationOptimizer ::DoLineSearch(
       break;
     }
 
-    if (std::abs(directionalDerivative) <= (-c2 * initialDirectionalDerivative)) {
+    if (std::abs(directionalDerivative) <=
+        (-c2 * initialDirectionalDerivative)) {
       // Found an excellent solution that we can simply return -- no need for
       // zooming
       newPosition = position;

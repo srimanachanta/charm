@@ -49,8 +49,9 @@ double AtlasMeshDeformationFixedStepGradientDescentOptimizer ::
     std::cout << "m_Cost: " << m_Cost << std::endl;
     std::cout << "trialCost: " << trialCost << std::endl;
   }
-  if ((trialCost > m_Cost) || ((std::abs(m_Cost - trialCost) / std::abs(trialCost)) <
-                               m_LineSearchStopCriterion)) {
+  if ((trialCost > m_Cost) ||
+      ((std::abs(m_Cost - trialCost) / std::abs(trialCost)) <
+       m_LineSearchStopCriterion)) {
     // Bad or insufficiently good step -- give up
     return 0.0;
   }

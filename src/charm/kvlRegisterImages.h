@@ -22,14 +22,14 @@ class CommandIterationUpdate : public itk::Command {
  public:
   typedef itk::ConjugateGradientLineSearchOptimizerv4Template<double>
       OptimizerType;
-  typedef const OptimizerType *OptimizerPointer;
+  typedef const OptimizerType* OptimizerPointer;
 
-  void Execute(itk::Object *caller, const itk::EventObject &event) override {
-    Execute((const itk::Object *)caller, event);
+  void Execute(itk::Object* caller, const itk::EventObject& event) override {
+    Execute((const itk::Object*)caller, event);
   }
 
-  void Execute(const itk::Object *object,
-               const itk::EventObject &event) override {
+  void Execute(const itk::Object* object,
+               const itk::EventObject& event) override {
     auto optimizer = static_cast<OptimizerPointer>(object);
     if (!(itk::IterationEvent().CheckEvent(&event))) {
       return;
@@ -64,15 +64,15 @@ class RegistrationInterfaceCommand : public itk::Command {
   // in the \code{Execute()} method.
  public:
   typedef TRegistration RegistrationType;
-  typedef RegistrationType *RegistrationPointer;
+  typedef RegistrationType* RegistrationPointer;
   typedef itk::ConjugateGradientLineSearchOptimizerv4Template<double>
       OptimizerType;
-  typedef OptimizerType *OptimizerPointer;
+  typedef OptimizerType* OptimizerPointer;
 
   // Two arguments are passed to the \code{Execute()} method: the first
   // is the pointer to the object which invoked the event and the
   // second is the event that was invoked.
-  void Execute(itk::Object *object, const itk::EventObject &event) override {
+  void Execute(itk::Object* object, const itk::EventObject& event) override {
     // First we verify that the event invoked is of the right type,
     // \code{itk::MultiResolutionIterationEvent()}.
     // If not, we return without any further action.
@@ -170,9 +170,7 @@ class RegistrationInterfaceCommand : public itk::Command {
   // \code{const itk::Object *}.
   // It is also required since this method is defined as pure virtual
   // in the base class.  This version simply returns without taking any action.
-  void Execute(const itk::Object *, const itk::EventObject &) override {
-    return;
-  }
+  void Execute(const itk::Object*, const itk::EventObject&) override { return; }
 };
 
 template <typename InputTransformationType, typename InputMetricType>
@@ -206,7 +204,7 @@ class RegisterImages : public itk::Object {
   ~RegisterImages() {};
 
   // Read
-  void ReadImages(const char *fileNameT1, const char *fileNameT2);
+  void ReadImages(const char* fileNameT1, const char* fileNameT2);
 
   // Initialize the registration
   void InitializeTransform();
@@ -256,8 +254,8 @@ class RegisterImages : public itk::Object {
 
  protected:
  private:
-  RegisterImages(const Self &);  // purposely not implemented
-  void operator=(const Self &);  // purposely not implemented
+  RegisterImages(const Self&);  // purposely not implemented
+  void operator=(const Self&);  // purposely not implemented
 
   ImageType::Pointer m_FixedImage;
   ImageType::Pointer m_MovingImage;

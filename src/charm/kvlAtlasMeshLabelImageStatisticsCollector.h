@@ -36,19 +36,17 @@ class AtlasMeshLabelImageStatisticsCollector
   virtual ~AtlasMeshLabelImageStatisticsCollector();
 
   //
-  void GetContributionOfTetrahedron(const AtlasMesh::PointType& p0,
-                                    const AtlasMesh::PointType& p1,
-                                    const AtlasMesh::PointType& p2,
-                                    const AtlasMesh::PointType& p3,
-                                    const AtlasAlphasType& alphasInVertex0,
-                                    const AtlasAlphasType& alphasInVertex1,
-                                    const AtlasAlphasType& alphasInVertex2,
-                                    const AtlasAlphasType& alphasInVertex3,
-                                    double& minLogLikelihood,
-                                    AtlasAlphasType& statisticsInVertex0,
-                                    AtlasAlphasType& statisticsInVertex1,
-                                    AtlasAlphasType& statisticsInVertex2,
-                                    AtlasAlphasType& statisticsInVertex3) override;
+  void GetContributionOfTetrahedron(
+      const AtlasMesh::PointType& p0, const AtlasMesh::PointType& p1,
+      const AtlasMesh::PointType& p2, const AtlasMesh::PointType& p3,
+      const AtlasAlphasType& alphasInVertex0,
+      const AtlasAlphasType& alphasInVertex1,
+      const AtlasAlphasType& alphasInVertex2,
+      const AtlasAlphasType& alphasInVertex3, double& minLogLikelihood,
+      AtlasAlphasType& statisticsInVertex0,
+      AtlasAlphasType& statisticsInVertex1,
+      AtlasAlphasType& statisticsInVertex2,
+      AtlasAlphasType& statisticsInVertex3) override;
 
  private:
   AtlasMeshLabelImageStatisticsCollector(

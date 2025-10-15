@@ -21,24 +21,22 @@
 
 namespace itk {
 
-class TransformIOFactoryRegisterManager
-{
-  public:
-  TransformIOFactoryRegisterManager(void (*list[])(void))
-    {
-    for(;*list; ++list)
-      {
+class TransformIOFactoryRegisterManager {
+ public:
+  TransformIOFactoryRegisterManager(void (*list[])(void)) {
+    for (; *list; ++list) {
       (*list)();
-      }
     }
+  }
 };
-
 
 //
 //  The following code is intended to be expanded at the end of the
 //  itkTransformFileReader.h and itkTransformFileWriter.h files.
 //
-void  HDF5TransformIOFactoryRegister__Private();void  MatlabTransformIOFactoryRegister__Private();void  TxtTransformIOFactoryRegister__Private();
+void HDF5TransformIOFactoryRegister__Private();
+void MatlabTransformIOFactoryRegister__Private();
+void TxtTransformIOFactoryRegister__Private();
 
 //
 // The code below registers available IO helpers using static initialization in
@@ -47,13 +45,15 @@ void  HDF5TransformIOFactoryRegister__Private();void  MatlabTransformIOFactoryRe
 //
 namespace {
 
-  void (*TransformIOFactoryRegisterRegisterList[])(void) = {
-    HDF5TransformIOFactoryRegister__Private,MatlabTransformIOFactoryRegister__Private,TxtTransformIOFactoryRegister__Private,
-    0};
-  TransformIOFactoryRegisterManager TransformIOFactoryRegisterManagerInstance(TransformIOFactoryRegisterRegisterList);
+void (*TransformIOFactoryRegisterRegisterList[])(void) = {
+    HDF5TransformIOFactoryRegister__Private,
+    MatlabTransformIOFactoryRegister__Private,
+    TxtTransformIOFactoryRegister__Private, 0};
+TransformIOFactoryRegisterManager TransformIOFactoryRegisterManagerInstance(
+    TransformIOFactoryRegisterRegisterList);
 
-}
+}  // namespace
 
-}
+}  // namespace itk
 
 #endif

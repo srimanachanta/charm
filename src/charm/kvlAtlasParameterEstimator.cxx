@@ -1,7 +1,8 @@
 #include "kvlAtlasParameterEstimator.h"
-#include "itkMultiThreaderBase.h"
+
 #include "itkCommand.h"
 #include "itkImageRegionConstIterator.h"
+#include "itkMultiThreaderBase.h"
 #include "kvlAtlasMeshDeformationConjugateGradientOptimizer.h"
 #include "kvlAtlasMeshDeformationFixedStepGradientDescentOptimizer.h"
 #include "kvlAtlasMeshDeformationGradientDescentOptimizer.h"
@@ -154,7 +155,7 @@ void AtlasParameterEstimator ::EstimateAlphas() {
   m_AlphasEstimationIterationNumber = 0;
   this->InvokeEvent(AlphasEstimationStartEvent());
   while ((previousCost - currentCost) / std::abs(currentCost) >
-         m_AlphaEstimationStopCriterion &&
+             m_AlphaEstimationStopCriterion &&
          (m_AlphasEstimationIterationNumber <
           m_AlphasEstimationMaximumNumberOfIterations)) {
     previousCost = currentCost;

@@ -8,143 +8,118 @@
 namespace kvl {
 
 class AlphasEstimationStartEvent : public itk::AnyEvent {
-  public:
-    using Self = AlphasEstimationStartEvent;
-    using Superclass = itk::AnyEvent;
+ public:
+  using Self = AlphasEstimationStartEvent;
+  using Superclass = itk::AnyEvent;
 
-    AlphasEstimationStartEvent() = default;
-    ~AlphasEstimationStartEvent() override = default;
+  AlphasEstimationStartEvent() = default;
+  ~AlphasEstimationStartEvent() override = default;
 
-    [[nodiscard]] const char * GetEventName() const override {
-      return "AlphasEstimationStartEvent";
-    }
+  [[nodiscard]] const char* GetEventName() const override {
+    return "AlphasEstimationStartEvent";
+  }
 
-    bool CheckEvent(const EventObject * e) const override
-    {
-      return dynamic_cast<const Self *>(e) != nullptr;
-    }
+  bool CheckEvent(const EventObject* e) const override {
+    return dynamic_cast<const Self*>(e) != nullptr;
+  }
 
-    [[nodiscard]] EventObject * MakeObject() const override
-    {
-      return new Self;
-    }
+  [[nodiscard]] EventObject* MakeObject() const override { return new Self; }
 };
 
 class AlphasEstimationIterationEvent : public itk::AnyEvent {
-  public:
-    using Self = AlphasEstimationIterationEvent;
-    using Superclass = itk::AnyEvent;
+ public:
+  using Self = AlphasEstimationIterationEvent;
+  using Superclass = itk::AnyEvent;
 
-    AlphasEstimationIterationEvent() = default;
-    ~AlphasEstimationIterationEvent() override = default;
+  AlphasEstimationIterationEvent() = default;
+  ~AlphasEstimationIterationEvent() override = default;
 
-    [[nodiscard]] const char * GetEventName() const override {
-      return "AlphasEstimationIterationEvent";
-    }
+  [[nodiscard]] const char* GetEventName() const override {
+    return "AlphasEstimationIterationEvent";
+  }
 
-    bool CheckEvent(const EventObject * e) const override
-    {
-      return dynamic_cast<const Self *>(e) != nullptr;
-    }
+  bool CheckEvent(const EventObject* e) const override {
+    return dynamic_cast<const Self*>(e) != nullptr;
+  }
 
-    [[nodiscard]] EventObject * MakeObject() const override
-    {
-      return new Self;
-    }
+  [[nodiscard]] EventObject* MakeObject() const override { return new Self; }
 };
 
 class AlphasEstimationEndEvent : public itk::AnyEvent {
-  public:
-    using Self = AlphasEstimationEndEvent;
-    using Superclass = itk::AnyEvent;
+ public:
+  using Self = AlphasEstimationEndEvent;
+  using Superclass = itk::AnyEvent;
 
-    AlphasEstimationEndEvent() = default;
-    ~AlphasEstimationEndEvent() override = default;
+  AlphasEstimationEndEvent() = default;
+  ~AlphasEstimationEndEvent() override = default;
 
-    [[nodiscard]] const char * GetEventName() const override {
-      return "AlphasEstimationEndEvent";
-    }
+  [[nodiscard]] const char* GetEventName() const override {
+    return "AlphasEstimationEndEvent";
+  }
 
-    bool CheckEvent(const EventObject * e) const override
-    {
-      return dynamic_cast<const Self *>(e) != nullptr;
-    }
+  bool CheckEvent(const EventObject* e) const override {
+    return dynamic_cast<const Self*>(e) != nullptr;
+  }
 
-    [[nodiscard]] EventObject * MakeObject() const override
-    {
-      return new Self;
-    }
+  [[nodiscard]] EventObject* MakeObject() const override { return new Self; }
 };
 
 class PositionEstimationStartEvent : public itk::AnyEvent {
-  public:
-    using Self = PositionEstimationStartEvent;
-    using Superclass = itk::AnyEvent;
+ public:
+  using Self = PositionEstimationStartEvent;
+  using Superclass = itk::AnyEvent;
 
-    PositionEstimationStartEvent() = default;
-    ~PositionEstimationStartEvent() override = default;
+  PositionEstimationStartEvent() = default;
+  ~PositionEstimationStartEvent() override = default;
 
-    [[nodiscard]] const char * GetEventName() const override {
-      return "PositionEstimationStartEvent";
-    }
+  [[nodiscard]] const char* GetEventName() const override {
+    return "PositionEstimationStartEvent";
+  }
 
-    bool CheckEvent(const EventObject * e) const override
-    {
-      return dynamic_cast<const Self *>(e) != nullptr;
-    }
+  bool CheckEvent(const EventObject* e) const override {
+    return dynamic_cast<const Self*>(e) != nullptr;
+  }
 
-    [[nodiscard]] EventObject * MakeObject() const override
-    {
-      return new Self;
-    }
+  [[nodiscard]] EventObject* MakeObject() const override { return new Self; }
 };
 
 class PositionEstimationIterationEvent : public itk::AnyEvent {
-  public:
-    using Self = PositionEstimationIterationEvent;
-    using Superclass = itk::AnyEvent;
+ public:
+  using Self = PositionEstimationIterationEvent;
+  using Superclass = itk::AnyEvent;
 
-    PositionEstimationIterationEvent() = default;
-    ~PositionEstimationIterationEvent() override = default;
+  PositionEstimationIterationEvent() = default;
+  ~PositionEstimationIterationEvent() override = default;
 
-    [[nodiscard]] const char * GetEventName() const override {
-      return "PositionEstimationIterationEvent";
-    }
+  [[nodiscard]] const char* GetEventName() const override {
+    return "PositionEstimationIterationEvent";
+  }
 
-    bool CheckEvent(const EventObject * e) const override
-    {
-      return dynamic_cast<const Self *>(e) != nullptr;
-    }
+  bool CheckEvent(const EventObject* e) const override {
+    return dynamic_cast<const Self*>(e) != nullptr;
+  }
 
-    [[nodiscard]] EventObject * MakeObject() const override
-    {
-      return new Self;
-    }
+  [[nodiscard]] EventObject* MakeObject() const override { return new Self; }
 };
 
 class PositionEstimationEndEvent : public itk::AnyEvent {
-  public:
-    using Self = PositionEstimationEndEvent;
-    using Superclass = itk::AnyEvent;
+ public:
+  using Self = PositionEstimationEndEvent;
+  using Superclass = itk::AnyEvent;
 
-    PositionEstimationEndEvent() = default;
-    ~PositionEstimationEndEvent() override = default;
+  PositionEstimationEndEvent() = default;
+  ~PositionEstimationEndEvent() override = default;
 
-    [[nodiscard]] const char * GetEventName() const override {
-      return "PositionEstimationEndEvent";
-    }
+  [[nodiscard]] const char* GetEventName() const override {
+    return "PositionEstimationEndEvent";
+  }
 
-    bool CheckEvent(const EventObject * e) const override
-    {
-      return dynamic_cast<const Self *>(e) != nullptr;
-    }
+  bool CheckEvent(const EventObject* e) const override {
+    return dynamic_cast<const Self*>(e) != nullptr;
+  }
 
-    [[nodiscard]] EventObject * MakeObject() const override
-    {
-      return new Self;
-    }
+  [[nodiscard]] EventObject* MakeObject() const override { return new Self; }
 };
-
 
 class AtlasParameterEstimator : public itk::Object {
  public:

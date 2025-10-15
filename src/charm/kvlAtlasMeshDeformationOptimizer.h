@@ -8,72 +8,60 @@ namespace kvl {
 
 // Events generated
 class DeformationStartEvent : public itk::AnyEvent {
-public:
-    using Self = DeformationStartEvent;
-    using Superclass = itk::AnyEvent;
+ public:
+  using Self = DeformationStartEvent;
+  using Superclass = itk::AnyEvent;
 
-    DeformationStartEvent() = default;
-    ~DeformationStartEvent() override = default;
+  DeformationStartEvent() = default;
+  ~DeformationStartEvent() override = default;
 
-    [[nodiscard]] const char * GetEventName() const override {
-        return "DeformationStartEvent";
-    }
+  [[nodiscard]] const char* GetEventName() const override {
+    return "DeformationStartEvent";
+  }
 
-    bool CheckEvent(const EventObject * e) const override
-    {
-        return dynamic_cast<const Self *>(e) != nullptr;
-    }
+  bool CheckEvent(const EventObject* e) const override {
+    return dynamic_cast<const Self*>(e) != nullptr;
+  }
 
-    [[nodiscard]] EventObject * MakeObject() const override
-    {
-        return new Self;
-    }
+  [[nodiscard]] EventObject* MakeObject() const override { return new Self; }
 };
 
 class DeformationIterationEvent : public itk::AnyEvent {
-public:
-    using Self = DeformationIterationEvent;
-    using Superclass = itk::AnyEvent;
+ public:
+  using Self = DeformationIterationEvent;
+  using Superclass = itk::AnyEvent;
 
-    DeformationIterationEvent() = default;
-    ~DeformationIterationEvent() override = default;
+  DeformationIterationEvent() = default;
+  ~DeformationIterationEvent() override = default;
 
-    [[nodiscard]] const char * GetEventName() const override {
-        return "DeformationIterationEvent";
-    }
+  [[nodiscard]] const char* GetEventName() const override {
+    return "DeformationIterationEvent";
+  }
 
-    bool CheckEvent(const EventObject * e) const override
-    {
-        return dynamic_cast<const Self *>(e) != nullptr;
-    }
+  bool CheckEvent(const EventObject* e) const override {
+    return dynamic_cast<const Self*>(e) != nullptr;
+  }
 
-    [[nodiscard]] EventObject * MakeObject() const override
-    {
-        return new Self;
-    }
+  [[nodiscard]] EventObject* MakeObject() const override { return new Self; }
 };
 
 class DeformationEndEvent : public itk::AnyEvent {
-public:
-    using Self = DeformationEndEvent;
-    using Superclass = itk::AnyEvent;
+ public:
+  using Self = DeformationEndEvent;
+  using Superclass = itk::AnyEvent;
 
-    DeformationEndEvent() = default;
-    ~DeformationEndEvent() override = default;
+  DeformationEndEvent() = default;
+  ~DeformationEndEvent() override = default;
 
-    [[nodiscard]] const char * GetEventName() const override {
-        return "DeformationEndEvent";
-    }
+  [[nodiscard]] const char* GetEventName() const override {
+    return "DeformationEndEvent";
+  }
 
-    bool CheckEvent(const EventObject * e) const override
-    {
-        return dynamic_cast<const Self *>(e) != nullptr;
-    }
+  bool CheckEvent(const EventObject* e) const override {
+    return dynamic_cast<const Self*>(e) != nullptr;
+  }
 
-    [[nodiscard]] EventObject * MakeObject() const override
-    {
-        return new Self;
-    }
+  [[nodiscard]] EventObject* MakeObject() const override { return new Self; }
 };
 
 /**
