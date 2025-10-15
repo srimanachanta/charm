@@ -52,7 +52,7 @@ class MutualInformationCostAndGradientCalculator
   void SetImage(const ImageType* image);
 
   /** */
-  void Rasterize(const AtlasMesh* mesh);
+  void Rasterize(const AtlasMesh* mesh) override;
 
  protected:
   MutualInformationCostAndGradientCalculator();
@@ -68,7 +68,7 @@ class MutualInformationCostAndGradientCalculator
       AtlasPositionGradientType& gradientInVertex0,
       AtlasPositionGradientType& gradientInVertex1,
       AtlasPositionGradientType& gradientInVertex2,
-      AtlasPositionGradientType& gradientInVertex3);
+      AtlasPositionGradientType& gradientInVertex3) override;
 
  private:
   MutualInformationCostAndGradientCalculator(

@@ -153,16 +153,16 @@ class ConditionalGaussianEntropyCostAndGradientCalculator
   void SetImage(const ImageType* image);
 
   /** */
-  void Rasterize(const AtlasMesh* mesh);
+  void Rasterize(const AtlasMesh* mesh) override;
 
  protected:
   ConditionalGaussianEntropyCostAndGradientCalculator();
-  virtual ~ConditionalGaussianEntropyCostAndGradientCalculator();
+  ~ConditionalGaussianEntropyCostAndGradientCalculator() override;
 
   //
   bool RasterizeTetrahedron(const AtlasMesh* mesh,
                             AtlasMesh::CellIdentifier tetrahedronId,
-                            int threadNumber);
+                            int threadNumber) override;
 
  private:
   ConditionalGaussianEntropyCostAndGradientCalculator(

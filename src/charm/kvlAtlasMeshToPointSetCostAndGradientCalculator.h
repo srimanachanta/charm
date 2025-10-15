@@ -34,7 +34,7 @@ class AtlasMeshToPointSetCostAndGradientCalculator
   virtual ~AtlasMeshToPointSetCostAndGradientCalculator();
 
   //
-  void PostProcessCostAndGradient(const AtlasMesh* mesh);
+  void PostProcessCostAndGradient(const AtlasMesh* mesh) override;
 
  private:
   AtlasMeshToPointSetCostAndGradientCalculator(

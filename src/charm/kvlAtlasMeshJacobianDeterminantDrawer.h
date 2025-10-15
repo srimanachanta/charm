@@ -39,12 +39,12 @@ class AtlasMeshJacobianDeterminantDrawer : public AtlasMeshRasterizor {
 
  protected:
   AtlasMeshJacobianDeterminantDrawer();
-  virtual ~AtlasMeshJacobianDeterminantDrawer();
+  ~AtlasMeshJacobianDeterminantDrawer() override;
 
   //
   bool RasterizeTetrahedron(const AtlasMesh* mesh,
                             AtlasMesh::CellIdentifier tetrahedronId,
-                            int threadNumber);
+                            int threadNumber) override;
 
  private:
   AtlasMeshJacobianDeterminantDrawer(const Self&);  // purposely not implemented

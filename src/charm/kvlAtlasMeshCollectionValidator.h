@@ -27,10 +27,10 @@ class AtlasMeshCollectionValidator : public itk::Object {
   AtlasMeshCollectionValidator();
 
   // Destructor
-  virtual ~AtlasMeshCollectionValidator();
+  ~AtlasMeshCollectionValidator() override;
 
   // Print
-  void PrintSelf(std::ostream& os, itk::Indent indent) const;
+  void PrintSelf(std::ostream& os, itk::Indent indent) const override;
 
  private:
   AtlasMeshCollectionValidator(const Self&);  // purposely not implemented

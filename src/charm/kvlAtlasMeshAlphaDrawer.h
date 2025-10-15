@@ -47,7 +47,7 @@ class AtlasMeshAlphaDrawer : public AtlasMeshRasterizor {
   //
   bool RasterizeTetrahedron(const AtlasMesh* mesh,
                             AtlasMesh::CellIdentifier tetrahedronId,
-                            int threadNumber);
+                            int threadNumber) override;
 
  private:
   AtlasMeshAlphaDrawer(const Self&);  // purposely not implemented

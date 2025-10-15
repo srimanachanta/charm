@@ -56,10 +56,10 @@ class GMMLikelihoodImageFilter
  protected:
   GMMLikelihoodImageFilter();
 
-  virtual void BeforeThreadedGenerateData();
+  void BeforeThreadedGenerateData() override;
 
-  virtual void ThreadedGenerateData(const RegionType& outputRegionForThread,
-                                    itk::ThreadIdType);
+  void ThreadedGenerateData(const RegionType& outputRegionForThread,
+                            itk::ThreadIdType) override;
 
  private:
   GMMLikelihoodImageFilter(const Self&);

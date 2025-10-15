@@ -63,7 +63,7 @@ class CompressionLookupTable : public itk::Object {
   virtual ~CompressionLookupTable();
 
   // Print
-  void PrintSelf(std::ostream& os, itk::Indent indent) const;
+  void PrintSelf(std::ostream& os, itk::Indent indent) const override;
 
   //
   void FillInMissingNamesAndColors();

@@ -46,7 +46,7 @@ class AtlasMeshToLabelImageCostAndGradientCalculator
       AtlasPositionGradientType& gradientInVertex0,
       AtlasPositionGradientType& gradientInVertex1,
       AtlasPositionGradientType& gradientInVertex2,
-      AtlasPositionGradientType& gradientInVertex3);
+      AtlasPositionGradientType& gradientInVertex3) override;
 
  private:
   AtlasMeshToLabelImageCostAndGradientCalculator(

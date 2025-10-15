@@ -39,7 +39,7 @@ class AtlasMeshToIntensityImageCostAndGradientCalculator
                      const std::vector<int>& numberOfGaussiansPerClass);
 
   /** */
-  void Rasterize(const AtlasMesh* mesh);
+  void Rasterize(const AtlasMesh* mesh) override;
 
  protected:
   AtlasMeshToIntensityImageCostAndGradientCalculator();
@@ -55,7 +55,7 @@ class AtlasMeshToIntensityImageCostAndGradientCalculator
       AtlasPositionGradientType& gradientInVertex0,
       AtlasPositionGradientType& gradientInVertex1,
       AtlasPositionGradientType& gradientInVertex2,
-      AtlasPositionGradientType& gradientInVertex3);
+      AtlasPositionGradientType& gradientInVertex3) override;
 
  private:
   AtlasMeshToIntensityImageCostAndGradientCalculator(

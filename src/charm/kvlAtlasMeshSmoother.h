@@ -55,7 +55,7 @@ class AtlasMeshSmoother : public itk::Object {
   virtual ~AtlasMeshSmoother();
 
   // Print
-  void PrintSelf(std::ostream& os, itk::Indent indent) const;
+  void PrintSelf(std::ostream& os, itk::Indent indent) const override;
 
  private:
   AtlasMeshSmoother(const Self&);  // purposely not implemented

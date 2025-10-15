@@ -37,7 +37,7 @@ class AtlasMeshMultiAlphaDrawer : public AtlasMeshRasterizor {
   const ImageType* GetImage() const { return m_Image; }
 
   //
-  void Rasterize(const AtlasMesh* mesh);
+  void Rasterize(const AtlasMesh* mesh) override;
 
  protected:
   AtlasMeshMultiAlphaDrawer();
@@ -46,7 +46,7 @@ class AtlasMeshMultiAlphaDrawer : public AtlasMeshRasterizor {
   //
   bool RasterizeTetrahedron(const AtlasMesh* mesh,
                             AtlasMesh::CellIdentifier tetrahedronId,
-                            int threadNumber);
+                            int threadNumber) override;
 
  private:
   AtlasMeshMultiAlphaDrawer(const Self&);  // purposely not implemented

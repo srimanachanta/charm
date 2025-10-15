@@ -70,7 +70,7 @@ class Histogrammer : public AtlasMeshRasterizor {
   const BinnedImageType* GetBinnedImage() const { return m_BinnedImage; }
 
   /** */
-  void Rasterize(const AtlasMesh* mesh);
+  void Rasterize(const AtlasMesh* mesh) override;
 
  protected:
   Histogrammer();
@@ -79,7 +79,7 @@ class Histogrammer : public AtlasMeshRasterizor {
   //
   bool RasterizeTetrahedron(const AtlasMesh* mesh,
                             AtlasMesh::CellIdentifier tetrahedronId,
-                            int threadNumber);
+                            int threadNumber) override;
 
  private:
   Histogrammer(const Self&);    // purposely not implemented

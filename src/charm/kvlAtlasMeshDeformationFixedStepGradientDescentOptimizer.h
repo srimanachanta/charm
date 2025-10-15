@@ -33,7 +33,7 @@ class AtlasMeshDeformationFixedStepGradientDescentOptimizer
   AtlasMeshDeformationFixedStepGradientDescentOptimizer();
   virtual ~AtlasMeshDeformationFixedStepGradientDescentOptimizer();
 
-  double FindAndOptimizeNewSearchDirection();
+  double FindAndOptimizeNewSearchDirection() override;
 
  private:
   AtlasMeshDeformationFixedStepGradientDescentOptimizer(

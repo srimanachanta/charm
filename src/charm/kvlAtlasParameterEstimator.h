@@ -314,7 +314,7 @@ class AtlasParameterEstimator : public itk::Object {
   virtual ~AtlasParameterEstimator();
 
   // Print
-  void PrintSelf(std::ostream& os, itk::Indent indent) const;
+  void PrintSelf(std::ostream& os, itk::Indent indent) const override;
 
   //
   virtual void EstimateAlphas();

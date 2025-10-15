@@ -34,7 +34,7 @@ class AverageAtlasMeshPositionCostAndGradientCalculator
   }
 
   //
-  void Rasterize(const AtlasMesh* mesh);
+  void Rasterize(const AtlasMesh* mesh) override;
 
  protected:
   AverageAtlasMeshPositionCostAndGradientCalculator();

@@ -172,7 +172,7 @@ class AtlasMeshCollection : public itk::Object {
   virtual ~AtlasMeshCollection();
 
   // Print
-  void PrintSelf(std::ostream& os, itk::Indent indent) const;
+  void PrintSelf(std::ostream& os, itk::Indent indent) const override;
 
   //
   AtlasMeshCollection::Pointer GetEdgeSplitted(

@@ -28,9 +28,9 @@ class AtlasMeshDeformationGradientDescentOptimizer
   AtlasMeshDeformationGradientDescentOptimizer();
   virtual ~AtlasMeshDeformationGradientDescentOptimizer();
 
-  void Initialize();
+  void Initialize() override;
 
-  double FindAndOptimizeNewSearchDirection();
+  double FindAndOptimizeNewSearchDirection() override;
 
  private:
   AtlasMeshDeformationGradientDescentOptimizer(

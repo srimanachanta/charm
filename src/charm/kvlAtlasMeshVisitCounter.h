@@ -44,7 +44,7 @@ class AtlasMeshVisitCounter : public AtlasMeshRasterizor {
   //
   bool RasterizeTetrahedron(const AtlasMesh* mesh,
                             AtlasMesh::CellIdentifier tetrahedronId,
-                            int threadNumber);
+                            int threadNumber) override;
 
  private:
   AtlasMeshVisitCounter(const Self&);  // purposely not implemented

@@ -49,7 +49,7 @@ class AtlasMeshProbabilityImageStatisticsCollector
                                     AtlasAlphasType& statisticsInVertex0,
                                     AtlasAlphasType& statisticsInVertex1,
                                     AtlasAlphasType& statisticsInVertex2,
-                                    AtlasAlphasType& statisticsInVertex3);
+                                    AtlasAlphasType& statisticsInVertex3) override;
 
  private:
   AtlasMeshProbabilityImageStatisticsCollector(

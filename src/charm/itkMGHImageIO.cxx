@@ -493,15 +493,7 @@ unsigned int MGHImageIO::GetComponentSize() const {
     case IOComponentEnum::FLOAT:
       returnValue = sizeof(float);
       break;
-
-    // DJ -- added this in to get the compiler to shut up
-    case UNKNOWNCOMPONENTTYPE:
-    case CHAR:
-    case USHORT:
-    case UINT:
-    case ULONG:
-    case LONG:
-    case DOUBLE:
+    default:
       break;
   }
   return returnValue;

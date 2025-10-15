@@ -36,9 +36,9 @@ class AtlasMeshDeformationLBFGSOptimizer
   AtlasMeshDeformationLBFGSOptimizer();
   virtual ~AtlasMeshDeformationLBFGSOptimizer();
 
-  void Initialize();
+  void Initialize() override;
 
-  double FindAndOptimizeNewSearchDirection();
+  double FindAndOptimizeNewSearchDirection() override;
 
  private:
   AtlasMeshDeformationLBFGSOptimizer(const Self&);  // purposely not implemented

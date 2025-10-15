@@ -35,7 +35,7 @@ class AtlasMeshStatisticsCollector : public AtlasMeshRasterizor {
   double GetMinLogLikelihood() const { return m_MinLogLikelihood; }
 
   /** */
-  void Rasterize(const AtlasMesh* mesh);
+  void Rasterize(const AtlasMesh* mesh) override;
 
  protected:
   AtlasMeshStatisticsCollector();
@@ -44,7 +44,7 @@ class AtlasMeshStatisticsCollector : public AtlasMeshRasterizor {
   //
   bool RasterizeTetrahedron(const AtlasMesh* mesh,
                             AtlasMesh::CellIdentifier tetrahedronId,
-                            int threadNumber);
+                            int threadNumber) override;
 
   virtual void GetContributionOfTetrahedron(
       const AtlasMesh::PointType& p0, const AtlasMesh::PointType& p1,
