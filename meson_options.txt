@@ -1,1 +1,0 @@
-option('use_dynamic_mesh', type : 'boolean', value : false, description : 'Use dynamic mesh instead of static.')
