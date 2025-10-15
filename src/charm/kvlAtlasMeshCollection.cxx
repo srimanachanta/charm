@@ -31,15 +31,15 @@ AtlasMeshCollection ::~AtlasMeshCollection() {
   // meshes, so that we don't accidentally think someone else is still using the
   // cells.
   m_Meshes.clear();
-  if (m_Cells) {
-    if (m_Cells->GetReferenceCount() == 1) {
-      AtlasMesh::CellsContainer::Iterator cellIt = m_Cells->Begin();
-      while (cellIt != m_Cells->End()) {
-        delete cellIt.Value();
-        ++cellIt;
-      }
-    }
-  }
+  // if (m_Cells) {
+  //   if (m_Cells->GetReferenceCount() == 1) {
+  //     AtlasMesh::CellsContainer::Iterator cellIt = m_Cells->Begin();
+  //     while (cellIt != m_Cells->End()) {
+  //       delete cellIt.Value();
+  //       ++cellIt;
+  //     }
+  //   }
+  // }
 }
 
 //

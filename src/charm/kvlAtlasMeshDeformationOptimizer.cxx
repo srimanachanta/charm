@@ -34,11 +34,11 @@ AtlasMeshDeformationOptimizer ::~AtlasMeshDeformationOptimizer() {}
 //
 //
 void AtlasMeshDeformationOptimizer ::GetCostAndGradient(
-    const AtlasMesh::PointsContainer* position, double& cost,
+     AtlasMesh::PointsContainer* position, double& cost,
     AtlasPositionGradientContainerType::Pointer& gradient) {
   // Set up a mesh
   AtlasMesh::Pointer mesh = AtlasMesh::New();
-  mesh->SetPoints(const_cast<AtlasMesh::PointsContainer*>(position));
+  mesh->SetPoints(position);
   mesh->SetCells(m_Mesh->GetCells());
   mesh->SetPointData(m_Mesh->GetPointData());
   mesh->SetCellData(m_Mesh->GetCellData());

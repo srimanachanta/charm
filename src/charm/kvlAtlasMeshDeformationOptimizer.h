@@ -192,7 +192,7 @@ class AtlasMeshDeformationOptimizer : public itk::Object {
 
   //
   virtual void GetCostAndGradient(
-      const AtlasMesh::PointsContainer* position, double& cost,
+  AtlasMesh::PointsContainer* position, double& cost,
       AtlasPositionGradientContainerType::Pointer& gradient);
 
   //
